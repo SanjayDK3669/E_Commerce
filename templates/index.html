@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yearly Spending Predictor</title>
+  <style>
+    :root {
+      --bg-color: #FFFFFF;
+      --text-color: #000000;
+      --accent-color: #0077B5;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .header {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+    }
+
+    .header a {
+      color: var(--bg-color);
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .header button {
+      background-color: var(--bg-color);
+      color: var(--accent-color);
+      border: none;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 60px); /* subtract header height */
+      text-align: center;
+    }
+
+    .form-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 2px solid var(--accent-color);
+      border-radius: 5px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      margin-top: 1rem;
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      opacity: 0.9;
+    }
+
+    .output {
+      margin-top: 1.5rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 600px) {
+      .header {
+        padding: 0.6rem 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .header a {
+        font-size: 1rem;
+      }
+
+      .header button {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+      }
+
+      .form-box {
+        padding: 1.2rem;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      input[type="text"], button[type="submit"] {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="/">Sandyie.in</a>
+    <button onclick="window.open('https://www.sandyie.in', '_blank')"><b>Visit sandyie.in</b></button>
+  </div>
+
+  <div class="container">
+    <div class="form-box">
+      <h1>Yearly Spending Predictor</h1>
+      <form action="/" method="post">
+        <input type="text" name="Avg._Session_Length" placeholder="Avg. Session Length" required />
+        <input type="text" name="Time_on_App" placeholder="Time on App" required />
+        <input type="text" name="Time_on_Website" placeholder="Time on Website" required />
+        <input type="text" name="Length_of_Membership" placeholder="Length of Membership" required />
+        <button type="submit">Predict</button>
+      </form>
+      {% if prediction_text %}
+        <div class="output">Predicted Spending: {{ prediction_text }} ₹</div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
