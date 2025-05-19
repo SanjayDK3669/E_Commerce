@@ -139,10 +139,10 @@
     <div class="form-box">
       <h1>Yearly Spending Predictor</h1>
       <form action="/" method="post">
-        <input type="text" name="Avg._Session_Length" placeholder="Avg. Session Length" required />
-        <input type="text" name="Time_on_App" placeholder="Time on App" required />
-        <input type="text" name="Time_on_Website" placeholder="Time on Website" required />
-        <input type="text" name="Length_of_Membership" placeholder="Length of Membership" required />
+        <input type="text" name="Avg._Session_Length" placeholder="Avg. Session Length(In Minutes)" required />
+        <input type="text" name="Time_on_App" placeholder="Time on App(In Minutes)" required />
+        <input type="text" name="Time_on_Website" placeholder="Time on Website(In Minutes)" required />
+        <input type="text" name="Length_of_Membership" placeholder="Length of Membership(In Months)" required />
         <button type="submit">Predict</button>
       </form>
       {% if prediction_text %}
