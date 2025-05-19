@@ -32,7 +32,11 @@ def predict():
         features = np.array([[avg_sess_len, time_on_app, time_on_web, length_of_membership]])
 
         pred = model.predict(features)
-        prediction_value = pred[0]
+        
+        if pred[0] > 0:
+            prediction_value = pred[0]
+        else:
+            prediction_value = 0.0
 
         prediction_text = f"{prediction_value:,.2f}"
 
